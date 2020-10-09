@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 interface ContainerProps {
   size?: 'small' | 'large';
@@ -22,13 +23,20 @@ export const Container = styled.div<ContainerProps>`
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s;
 
         & + a {
           margin-left: 32px;
         }
 
         &:hover {
-          opacity: 0.6;
+          color: ${shade(0.2, '#FFF')};
+          border-bottom-color: #ff872c;
+        }
+
+        &.active {
+          border-bottom-color: #ff872c;
         }
       }
     }
